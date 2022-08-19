@@ -1,14 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: myngix-svc
-  label:
-    app: mynginx
+  name: myjavaapp-svc
+  labels:
+     app: myjavaapp
+     version: 2.6.1
 spec:
-  selector:
-    app: myngix
+  type: NodePort
   ports:
   - port: 8080
-    nodePort: 300001
+    nodePort: 30001
     protocol: TCP
-    
+  selector:
+      app:  myjavaapp
+      version: 2.6.1
